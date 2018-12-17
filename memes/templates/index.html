@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-<body style="background-image:url('st.jpg'); background-attachment: fixed;">
+<body style="background-image:url({% static 'st.jpg' %}); background-attachment: fixed;">
 
 <h1 style="font-size:1000%; text-align:center; color: red;">mEME vILLE</h1>
 
@@ -12,7 +13,7 @@
 <marquee behavior="alternate" </marquee>
 
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-  <img src="rr.jpg" align="center">
+  <img src="{% static 'rr.jpg' %}" align="center">
 </a> </p>
 
 {% endblock %}
