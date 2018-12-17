@@ -2,18 +2,50 @@
 {% block content %}
 {% load static %}
 
+<style>
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
 <body style="background-image:url({% static 'st.jpg' %}); background-attachment: fixed;">
 
-<h1 style="font-size:1000%; text-align:center; color: red;">mEME vILLE</h1>
-
-<h2 style="font-size:500%; text-align:center;">A page where you can just mEME out</h2> </p>
-
-<p style="font-size:200%; text-align:center;">WARNING: MUST HAVE SENSE OF HUMOUR TO CONTINUE</p>
-
-<marquee behavior="alternate" </marquee>
-
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-  <img src="{% static 'rr.jpg' %}" align="center">
-</a> </p>
-
+	<div class="row">
+		<div class="col-md-2 col-md-offset-10">
+			<button class="button">Sign up</button>
+			<button class="button">Log In</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h1 style="font-size:1000%; text-align:center; color: red;">mEME vILLE</h1>
+			<h2 style="font-size:500%; text-align:center;">A page where you can just mEME out</h2> </p>
+			<p style="font-size:200%; text-align:center;">WARNING: MUST HAVE SENSE OF HUMOUR TO CONTINUE</p>
+			<marquee behavior="alternate" </marquee>
+			<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+  				<img src="{% static 'rr.jpg' %}" align="center">
+			</a> 
+			</p>
+		</div>
+	</div>
+</div>
 {% endblock %}
