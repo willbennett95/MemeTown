@@ -12,6 +12,31 @@ img.avatar {
 	padding: 16px;
 }
 </style>
+<script>
+// Check that all the fields are completed
+    function checkFields()
+    {
+        var email = document.forms["signUp"]["email"].value;
+        var em = email.trim();
+        var password = document.forms["signUp"]["password"].value;
+        var pw = password.trim();
+        
+        // Check if any of the variables are empty (after removing whitespace)
+        if (em == "" || pw == "")
+        {
+            // Alert message if not complete
+            alert("Please complete all the fields");
+            // Return false so the incomplete form does not get submitted
+            return false;
+        }
+        // Input sanitisation - prevent people signing up with these characters
+        if (em.match(/[<>''"",!;,:\]\[]/i) || pw.match(/[<>''"",!;,:\]\[]/i))
+        {
+            alert("Special characters are not allowed")
+            return false;
+        }
+    }
+</script>
 
 <div class="row">
 	<div class="col-md-1 col-md-offset-11">
@@ -25,6 +50,8 @@ img.avatar {
     		<img src="{% static 'TrollFace2.jpg' %}" alt="Avatar" class="avatar">
   	 	 </div>
 		 <br>
+		 <form name="signUp" method="POST" action="/signup/" onsubmit="return checkFields()">
+		 {% csrf_token %}
 		 <!-- Email -->
          <div class="row">
         	 <!-- Label -->
@@ -47,23 +74,13 @@ img.avatar {
          		<input class="form-control" type='password' name='password' size="35">
          	</div>
          </div>
-         <!-- Confirm Password -->
-         <div class="row">
-         	<!-- Label -->
-         	<div class="col-md-4">
-         		<h4>Confirm Password</h4>
-         	</div>
-         	<!-- Input box for password -->
-         	<div class="col-md-8" style="text-align: center;">
-         		<input class="form-control" type='password' name='confirm_password' size="35">
-         	</div>
-         </div>
          <!-- Login button to submit form -->
          <div class="row">
          	<div class="btn-group btn-group-lg btn-block">
          		<button type='submit' class="btn btn-primary btn-block">Sign Up</button>
          	</div>
          </div>
+	</form>
 	</div>
 </div>
 </div>
