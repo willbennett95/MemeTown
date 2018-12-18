@@ -17,9 +17,7 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
-
 .button:hover {background-color: #3e8e41}
-
 .button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
@@ -27,12 +25,22 @@
 }
 </style>
 
+<script>
+function login() {
+window.location.href="{% url 'memes:loginPage' %}";
+}
+
+function signup() {
+window.location.href="[% url 'memes:signupPage' %}";
+}
+</script>
+
 <body style="background-image:url({% static 'st.jpg' %}); background-attachment: fixed;">
 
 	<div class="row">
 		<div class="col-md-2 col-md-offset-10">
-			<button class="button">Sign up</button>
-			<button class="button">Log In</button>
+			<button class="button" onclick=signup()>Sign up</button>
+			<button class="button" onclick=login()>Log in</button>
 		</div>
 	</div>
 	<div class="row">
