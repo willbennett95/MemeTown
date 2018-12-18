@@ -2,7 +2,25 @@
 {% block content %}
 {% load static %}
 
-<div class="row" style="position:absolute; top:30%; left:40%;">
+<style>
+img.avatar {
+	width: 80%;
+	border-radius: 50%;
+}
+
+.container {
+	padding: 16px;
+}
+</style>
+
+
+<div class="row">
+	<div class="col-md-1 col-md-offset-11">
+		<button class="button" onclick=home()><span class="glyphicon glyphicon-home"></span></button>
+	</div>
+</div>
+<div style="color: #fff">
+<div class="row" style="position:absolute; top:30%; left:40%; border-style: solid; background-color: #124754;">
 	<div class="col-md-8 col-md-offset-2">
   		 <div class="imgcontainer">
     		<img src="{% static 'TrollFace.png' %}" alt="Avatar" class="avatar">
@@ -42,10 +60,10 @@
          		<br>
          		Don't have an account? <br>
          		<!-- Calls function 'signup' in views.py -->
-         		<a href=""> Sign Up </a>
+         		<a href="{% url 'memes:signupPage' %}"> Sign Up </a>
          	</p>
          </div>
 	</div>
 </div>
-
+</div>
 {% endblock %}
